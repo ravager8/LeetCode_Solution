@@ -11,7 +11,7 @@ public:
         int curr_sum = 0;
         int mx_sum = 0;
 
-        for(int j=1;j<=k and j<=i;j++)
+        for(int j=1;j<=k and j<=i;++j)
         {
             curr_sum = max(curr_sum,arr[i-j]);
             mx_sum = max(mx_sum,f(i-j,k,arr,dp)+curr_sum*(j));
