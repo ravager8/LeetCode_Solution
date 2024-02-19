@@ -2,28 +2,16 @@ class Solution {
 public:
     bool isPowerOfTwo(int n) 
     {
-        if(n<=0)
-        return false;
+        int ans = 1;
 
-        long long a = pow(2,31)-1;
-        vector<int> pot;
-        pot.push_back(1);
-
-        long long num = 1;
-
-        while(num <= a-1)
+        for(int i=0;i<30;i++)
         {
-            num *= 2;
+            if(ans==n)
+            return true;
 
-            if(num>a-1)
-            break;
+            ans*=2;
 
-            pot.push_back(num);
-        }
-
-        for(auto i:pot)
-        {
-            if(i==n)
+            if(ans==n)
             return true;
         }
 
