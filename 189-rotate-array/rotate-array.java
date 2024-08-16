@@ -18,13 +18,9 @@ class Solution {
     public void rotate(int[] nums, int k) {
         int n = nums.length;
         k = k%n;
-        int right = n-k;
 
-        if(k==0 || k==n)
-        return;
-
-        rotation(0,right-1,nums);
-        rotation(right,n-1,nums);
+        rotation(0,n-k-1,nums);
+        rotation(n-k,n-1,nums);
         rotation(0,n-1,nums);
         
         return;
