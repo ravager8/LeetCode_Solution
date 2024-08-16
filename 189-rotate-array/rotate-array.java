@@ -19,23 +19,13 @@ class Solution {
         int n = nums.length;
         k = k%n;
         int right = n-k;
-        int r = n-1;
-        int left = 0;
 
         if(k==0 || k==n)
         return;
 
         rotation(0,right-1,nums);
         rotation(right,n-1,nums);
-
-        while(left<r & r>left){
-            int t = nums[r];
-            nums[r] = nums[left];
-            nums[left] = t;
-
-            r--;
-            left++;
-        }
+        rotation(0,n-1,nums);
         
         return;
     }
