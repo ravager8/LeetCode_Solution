@@ -9,7 +9,7 @@ public:
 
         for(int i=1;i<n;i++){
             if(word[i]!=prev or len==9){
-                ans += to_string(len);
+                ans += ('0' + len);
                 ans += prev;
                 len = 1;
                 prev = word[i];
@@ -18,7 +18,7 @@ public:
             }
         }
 
-        ans += to_string(len);
+        ans += ('0' + len);
         ans += prev;
 
         return ans;
