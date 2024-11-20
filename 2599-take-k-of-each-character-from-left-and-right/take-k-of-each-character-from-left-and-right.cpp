@@ -2,61 +2,27 @@ class Solution {
 public:
     int takeCharacters(string s, int k) {
 
-        int cnta = 0,cntb = 0,cntc = 0;
+        unordered_map<char,int> mp;
         int n = s.size();
-        int ans = s.size();
+        int ans = n;
+        int j = 0;
+        int window = 0;
 
-        for(int i=0;i<s.size();i++){
+        for(int i=0;i<n;i++) mp[s[i]]++;
 
-            if(s[i]=='a') cnta++;
-            else if(s[i]=='b') cntb++;
-            else cntc++;
-        }
+        if(mp['a']<k or mp['b']<k or mp['c']<k) return -1;
 
-        if(cnta<k or cntb<k or cntc<k) return -1;
-        
-        int l = 0;
-        int r = (n- (3*k));
+        for(int i=0;i<n;i++){
+            mp[s[i]]--;
+            window++;
 
-        while(r>=l){
-            int mid = l + (r-l)/2;
-
-            int cnta1 = 0;
-            int cntb1 = 0;
-            int cntc1 = 0;
-            bool flag = true;
-
-            for(int i=0;i<mid;i++) {
-                if(s[i]=='a') cnta1++;
-                else if(s[i]=='b') cntb1++;
-                else cntc1++;
+            while(mp[s[i]]<k){
+                mp[s[j]]++;
+                j++;
+                window--;
             }
 
-            if(cnta-cnta1>=k and cntb-cntb1>=k and cntc-cntc1>=k){
-                ans = min(ans,n-mid);
-                l = mid+1;
-                flag = false;
-            } 
-            else{
-                for(int i=0;i<n-mid;i++){
-                    if(s[i]=='a') cnta1--;
-                    else if(s[i]=='b') cntb1--;
-                    else if(s[i]=='c') cntc1--;
-                    
-                    if(s[i+mid]=='a') cnta1++;
-                    else if(s[i+mid]=='b') cntb1++;
-                    else if(s[i+mid]=='c') cntc1++;
-
-                    if(cnta-cnta1>=k and cntb-cntb1>=k and cntc-cntc1>=k){
-                        ans = min(ans,n-mid);
-                        l = mid+1;
-                        flag = false;
-                        break;
-                    }
-                }
-            }
-
-            if(flag) r = mid-1;
+            ans = min(ans,n-window);
         }
 
         return ans;
