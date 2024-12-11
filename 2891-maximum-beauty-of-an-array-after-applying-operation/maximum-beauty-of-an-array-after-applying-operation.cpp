@@ -1,16 +1,21 @@
 class Solution {
 public:
     int maximumBeauty(vector<int>& nums, int k) {
+        
+        int ans = 0;
         sort(nums.begin(),nums.end());
-        int ans = 0,j=0;
         int n = nums.size();
-        for(int i=0;i<n;i++)
-        {
-            while(nums[i]-nums[j] > 2*k)
-                j++;
+        int l = 0;
+      
 
-            ans = max(ans,i-j+1);
+        for(int i=0;i<n;i++){
+
+            while(nums[i]-nums[l] > 2*k)
+            l++;
+
+            ans = max(ans,i-l+1);
         }
+
         return ans;
     }
 };
