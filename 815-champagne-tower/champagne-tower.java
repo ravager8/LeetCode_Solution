@@ -1,7 +1,7 @@
 class Solution {
     public double champagneTower(int poured, int query_row, int query_glass) {
         
-        double[][] pyramid = new double[101][101];
+        double[][] pyramid = new double[query_row+2][query_row+2];
         pyramid[0][0] = (double) poured;
 
         for(int i=0;i<=query_row;i++){
