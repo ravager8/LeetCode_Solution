@@ -20,8 +20,6 @@ class Solution {
 
                 if(cnt1<=cnt0) ans++;
             }
-
-            // System.out.println(ans + " " + i+ " " + cnt0 + " "+ cnt1);
         }
 
         return ans;
