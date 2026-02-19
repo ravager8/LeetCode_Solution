@@ -8,7 +8,6 @@ class Solution {
         else cnt1++;
 
         for(int i=1;i<n;i++){
-            System.out.println(ans + " " + s.charAt(i) + " " + cnt0 + " "+ cnt1);
             if(s.charAt(i)=='0') {
                 if(s.charAt(i-1)==s.charAt(i)) cnt0++;
                 else cnt0=1;
