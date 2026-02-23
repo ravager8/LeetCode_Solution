@@ -6,9 +6,9 @@ class Solution {
         for(int i=0;i<n-k+1;i++){
             String window = s.substring(i,i+k);
             freq.put(window,1);
+            if(freq.size()==Math.pow(2,k)) return true;
         }
 
-        if(freq.size()==Math.pow(2,k)) return true;
         return false;
     }
 }
