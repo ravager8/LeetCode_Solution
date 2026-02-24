@@ -23,7 +23,9 @@ class Solution {
         }
 
         int result = 0;
+        if(node.left!=null)
         result += recursive(node.left,str);
+        if(node.right!=null)
         result += recursive(node.right,str);
 
         return result;
