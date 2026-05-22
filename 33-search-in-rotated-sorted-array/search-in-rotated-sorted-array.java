@@ -6,7 +6,6 @@ class Solution {
 
         while(j>=i){
             mid = i + (j-i)/2;
-            System.out.println(mid);
             if(nums[mid]==target) return mid;
 
             if(nums[mid]>=nums[i]){
@@ -16,7 +15,6 @@ class Solution {
                 if(nums[i]>target && nums[mid]<target) i = mid+1;
                 else j = mid-1;
             }
-            System.out.println(i+ " " + j);
         }
 
         return -1;
