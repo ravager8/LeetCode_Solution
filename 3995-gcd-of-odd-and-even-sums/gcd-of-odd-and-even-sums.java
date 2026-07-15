@@ -8,17 +8,18 @@ class Solution {
             evenSum += (i*2)+2;
         }
 
-        int diff = evenSum-oddSum;
-        int ans = 1;
-
-        while(diff>=2){
-            if(oddSum%diff==0 && evenSum%diff==0){
-                ans = diff;
-                break;
-            }
-            diff--;
-        }
         
-        return ans;
+        return evenSum-oddSum;
+        // int ans = 1;
+
+        // while(diff>=2){
+        //     if(oddSum%diff==0 && evenSum%diff==0){
+        //         ans = diff;
+        //         break;
+        //     }
+        //     diff--;
+        // }
+        
+        // return ans;
     }
 }
